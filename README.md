@@ -1,59 +1,93 @@
-# TallerIDWMFrontend
+# Taller 2 - Ecommerce Tienda UCN (Frontend)
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 19.0.6.
+Este proyecto corresponde al Frontend de una aplicación web ecommerce desarrollada en **Angular**. Consume una **API REST** desarrollada en .NET (https://github.com/Intro-Desarrollo-Web-Movil/TallerIDWM). Este repositorio contiene el código fuente del Frontend para su despliegue y uso local.
 
-## Development server
+---
 
-To start a local development server, run:
+## Requerimientos
 
-```bash
-ng serve
-```
+- **[Node.js](https://nodejs.org/)** (Incluye npm)
+- **[Angular CLI](https://angular.io/cli)**
+- **[Tailwind CSS](https://tailwindcss.com/)**
+- **[Flowbite](https://flowbite.com/)**
 
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
+---
 
-## Code scaffolding
+## Clonar el Repositorio
 
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
+1. Dentro de una carpeta donde desees alojar el proyecto, abre una terminal o consola y escribe el comando para abrir Visual Studio Code:
+   ```bash
+   code .
+   ```
 
-```bash
-ng generate component component-name
-```
+2. Clona el repositorio desde la Terminal de Visual Studio Code (CTRL + J) con el siguiente comando:
+   ```bash
+   git clone https://github.com/Intro-Desarrollo-Web-Movil/TallerIDWM-Frontend
+   ```
 
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
+---
 
-```bash
-ng generate --help
-```
+## Restaurar el Proyecto
 
-## Building
+1. Navega a la carpeta del proyecto:
 
-To build the project run:
+   ```bash
+   cd TallerIDWM-Frontend
+   ```
 
-```bash
-ng build
-```
+2. Instala las dependencias necesarias ejecutando el siguiente comando:
 
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
+   ```bash
+   npm install
+   ```
 
-## Running unit tests
+---
 
-To execute unit tests with the [Karma](https://karma-runner.github.io) test runner, use the following command:
+## Ejecutar el Proyecto
 
-```bash
-ng test
-```
+Se necesita ejecutar en primer lugar el proyecto de API REST para que sea consumida por este proyecto. Enlace de la API REST en .NET (leer README de dicho proyecto para ejecutar): https://github.com/Intro-Desarrollo-Web-Movil/TallerIDWM
 
-## Running end-to-end tests
+Una vez con la API REST en ejecución, siga estos pasos para ejecutar este proyecto:
 
-For end-to-end (e2e) testing, run:
+1. Inicia el servidor de desarrollo con el siguiente comando:
 
-```bash
-ng e2e
-```
+   ```bash
+   ng serve -o
+   ```
 
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
+2. Esto abrirá automáticamente el proyecto en tu navegador en la URL:
 
-## Additional Resources
+   ```
+   http://localhost:4200
+   ```
 
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+---
+
+## Descripción del Proyecto
+
+TO DO
+
+### Tecnologías Utilizadas
+
+- **Angular**: Framework principal para el desarrollo del Frontend.
+- **Tailwind CSS**: Framework para estilizar la aplicación de forma rápida y responsiva.
+- **Flowbite**: Biblioteca para componentes interactivos y UI.
+- **Figma**: Herramienta utilizada para el diseño del prototipo.
+
+### Decisiones de Diseño
+
+TO DO
+
+1. **Validaciones de Campos**:
+   - **Name**: TO DO
+
+2. **Ejecución de Consultas**:
+   - El Frontend utiliza servicios de Angular (`HttpClient`) para comunicarse con la **API REST**. Las solicitudes HTTP realizan operaciones CRUD sobre la base de datos de usuarios y productos.
+
+### Estructura del Proyecto
+
+- **`src/app/tiendaucn/components`**: Componentes reutilizables como formularios y barra de navegación.
+- **`src/app/tiendaucn/pages`**: Páginas principales como listados de usuarios, productos, inicio de sesión, etc.
+- **`src/app/tiendaucn/services`**: Servicios que interactúan con el backend.
+
+---
