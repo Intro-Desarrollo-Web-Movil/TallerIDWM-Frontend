@@ -4,10 +4,11 @@ import { NavbarButtonComponent } from '../../../components/navbar-button/navbar-
 import { DropdownButtonComponent } from '../../../components/dropdown-button/dropdown-button.component';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { CommonModule } from '@angular/common';
+import { CartTableComponent } from "../../../components/cart-table/cart-table.component";
 
 @Component({
   selector: 'cart',
-  imports: [CommonModule, HttpClientModule, NavbarComponent,NavbarButtonComponent,DropdownButtonComponent],
+  imports: [CommonModule, CartTableComponent,HttpClientModule, NavbarComponent, NavbarButtonComponent, DropdownButtonComponent, CartTableComponent],
     templateUrl: './cart.component.html',
   styleUrl: './cart.component.css'
 })
