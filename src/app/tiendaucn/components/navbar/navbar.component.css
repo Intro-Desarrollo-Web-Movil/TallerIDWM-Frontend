@@ -1,0 +1,14 @@
+.navbar {
+  background-color: #1f2937; /* Cambia este valor al color de fondo que prefieras */
+  position: relative;
+  width: 100%;
+  z-index: 20;
+  top: 0;
+  left: 0;
+}
+
+.navbar .max-w-screen-xl {
+  display: flex;
+  justify-content: space-between; /* Asegura que el contenido esté distribuido correctamente */
+  align-items: center;
+}

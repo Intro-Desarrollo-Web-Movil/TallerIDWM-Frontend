@@ -1,0 +1,13 @@
+<div class="relative group">
+  <a href="javascript:void(0);" class="dropdown-button">{{ label }}</a>
+  <ul class="dropdown-menu absolute hidden group-hover:block bg-gray-50 dark:bg-gray-800 rounded-lg mt-2">
+
+
+    <li *ngFor="let option of options">
+      <a (click)="navigateToPage(option.route)"
+      class="dropdown-item">
+      {{ option.label }}
+      </a>
+    </li>
+  </ul>
+</div>

@@ -1,0 +1,51 @@
+.relative {
+  position: relative;
+}
+
+.hidden {
+  display: none;
+}
+
+.group:hover .dropdown-menu {
+  display: block;
+}
+
+.dropdown-button {
+  display: block;
+  padding: 0rem 2rem; /* Ajusta el tamaño del área clickeable */
+  color: #ffffff;
+  background-color: transparent;
+  text-align: center;
+  cursor: pointer;
+}
+
+.dropdown-button:hover {
+  color: #5f9cff;
+  background-color: transparent;
+}
+
+.dropdown-menu {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  background-color: #122f58; /* Cambia el color del fondo del listado de opciones */
+  border-radius: 0.25rem;
+  margin-top: 0rem;
+  width: 10rem; /* Ajusta el ancho del menú desplegable */
+  display: none; /* Oculta el menú por defecto */
+  flex-direction: column;
+  z-index: 10; /* Asegura que el menú se muestre sobre otros elementos */
+}
+
+.dropdown-item {
+  display: block;
+  padding: 0.5rem 1rem;
+  color: #ffffff; /* Cambia el color de la letra del listado de opciones */
+  text-align: center;
+  cursor: pointer;
+}
+
+.dropdown-item:hover {
+  background-color: #030067;
+  color: #5f9cff;
+}

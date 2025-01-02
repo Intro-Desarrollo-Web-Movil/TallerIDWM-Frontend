@@ -1,0 +1,35 @@
+<nav class="navbar">
+  <div class="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto">
+    <!-- Logo -->
+    <div class="flex items-center">
+      <logo></logo>
+    </div>
+
+
+    <!--Botones-->
+    <div class="items-center justify-center hidden w-full md:flex md:w-auto" id="navbar-sticky">
+
+      <ul class="flex flex-col p-4 md:p-0 mt-4 font-bold rounded-lg bg-gray-50 md:space-x-8 rtl:space-x-reverse md:flex-row md:mt-0 md:bg-transparent dark:bg-gray-800 md:dark:bg-transparent">
+
+        <!--Boton 1-->
+        <li>
+          <navbar-button label="Productos" route="/product-list"></navbar-button>
+        </li>
+
+        <!--Boton 2-->
+        <li>
+          <navbar-button label="Carrito" route="/cart"></navbar-button>
+        </li>
+
+        <!--Dropdown Button-->
+        <li>
+          <dropdown-button label="Cuenta" [options]="[
+            { label: 'Iniciar sesión', route: '/login' },
+            { label: 'Registrarse', route: '/register' }
+          ]"></dropdown-button>
+        </li>
+
+      </ul>
+    </div>
+  </div>
+</nav>
