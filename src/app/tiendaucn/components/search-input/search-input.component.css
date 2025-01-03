@@ -1,24 +1,7 @@
-.navbar {
-  background-color: #17273f; /* Cambia este valor al color de fondo que prefieras */
-  position: relative;
-  width: 100%;
-  z-index: 20;
-  top: 0;
-  left: 0;
-}
-
-.navbar .max-w-screen-xl {
-  display: flex;
-  justify-content: space-between; /* Asegura que el contenido esté distribuido correctamente */
-  align-items: center;
-  width: 100%;
-}
-
 /* Estilo para el contenedor de la barra de búsqueda */
 .search-bar {
-  flex-grow: 0.25; /* Hace que el contenedor de búsqueda ocupe un cuarto del espacio disponible */
-  max-width: 600px; /* Ancho máximo */
-  margin: 0 20px; /* Margen automático para centrar */
+  max-width: 100%; /* Ancho máximo */
+  margin: 10px auto; /* Margen automático para centrar */
 }
 
 /* Estilo para el campo de entrada de búsqueda */
@@ -29,7 +12,7 @@
   color: #1f2937; /* Color del texto */
   background-color: #f9fafb; /* Fondo gris claro */
   border: 1px solid #d1d5db; /* Borde gris claro */
-  border-radius: 0 8px 8px 0; /* Bordes redondeados */
+  border-radius: 8px; /* Bordes redondeados */
   transition: border-color 0.3s; /* Transición para el cambio de color del borde */
 }
 
