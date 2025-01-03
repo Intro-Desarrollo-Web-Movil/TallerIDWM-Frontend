@@ -8,7 +8,7 @@ import { CartTableComponent } from "../../../components/cart-table/cart-table.co
 
 @Component({
   selector: 'cart',
-  imports: [CommonModule, CartTableComponent,HttpClientModule, NavbarComponent, NavbarButtonComponent, DropdownButtonComponent, CartTableComponent],
+  imports: [CommonModule, CartTableComponent,HttpClientModule, NavbarComponent, NavbarButtonComponent, DropdownButtonComponent, CartTable
     templateUrl: './cart.component.html',
   styleUrl: './cart.component.css'
 })

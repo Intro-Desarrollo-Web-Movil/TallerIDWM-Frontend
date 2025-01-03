@@ -10,6 +10,7 @@ import { SearchInputComponent } from '../../../components/search-input/search-in
 @Component({
   selector: 'product-list',
   imports: [CommonModule, HttpClientModule, SearchInputComponent, ProductCardListComponent, NavbarComponent,NavbarButtonComponent,DropdownButtonComponent],
+
   templateUrl: './product-list.component.html',
   styleUrl: './product-list.component.css'
 })
