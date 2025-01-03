@@ -1,0 +1,7 @@
+/* Estilo para el contenedor de la lista de tarjetas de producto */
+.product-card-list {
+  display: grid; /* Usar grid layout */
+  grid-template-columns: repeat(5, 1fr); /* Crear 5 columnas de igual tamaño */
+  gap: 16px; /* Espacio entre las tarjetas */
+  padding: 16px; /* Relleno interno */
+}

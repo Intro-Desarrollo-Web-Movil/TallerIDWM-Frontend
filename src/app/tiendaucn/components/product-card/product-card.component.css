@@ -1,0 +1,63 @@
+/* Estilo para el contenedor principal de la tarjeta de producto */
+.product-card {
+  max-width: 100%; /* Ancho máximo de la tarjeta */
+  margin: 10px; /* Margen alrededor de la tarjeta */
+  background-color: white; /* Fondo blanco */
+  border: 1px solid #e5e7eb; /* Borde gris claro */
+  border-radius: 8px; /* Bordes redondeados */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Sombra */
+  display: flex; /* Usar flexbox */
+  flex-direction: column; /* Alinear elementos en columna */
+  align-items: center; /* Centrar elementos horizontalmente */
+  text-align: center; /* Centrar texto */
+}
+
+/* Estilo para el contenedor de la imagen del producto */
+.product-card a img {
+  width: 75%; /* Ancho de la imagen */
+  height: auto; /* Altura automática para mantener la proporción */
+  border-top-left-radius: 8px; /* Bordes redondeados en la parte superior izquierda */
+  border-top-right-radius: 8px; /* Bordes redondeados en la parte superior derecha */
+  display: block; /* Hacer que la imagen sea un bloque */
+  margin: 0 auto; /* Centrar la imagen horizontalmente */
+}
+
+/* Estilo para el contenido de la tarjeta */
+.product-card .content {
+  padding: 16px; /* Relleno interno */
+  display: flex; /* Usar flexbox */
+  flex-direction: column; /* Alinear elementos en columna */
+  align-items: center; /* Centrar elementos horizontalmente */
+}
+
+/* Estilo para el título del producto */
+.product-card .content h5 {
+  margin-bottom: 8px; /* Margen inferior */
+  font-size: 1.25rem; /* Tamaño de fuente */
+  font-weight: bold; /* Negrita */
+  color: #1f2937; /* Color del texto */
+}
+
+/* Estilo para la descripción del producto */
+.product-card .content p {
+  margin-bottom: 8px; /* Margen inferior */
+  font-size: 0.875rem; /* Tamaño de fuente */
+  color: #4b5563; /* Color del texto */
+}
+
+/* Estilo para el botón */
+.product-card .content button {
+  display: inline-flex; /* Elemento en línea con flexbox */
+  align-items: center; /* Alinear elementos al centro */
+  padding: 8px 16px; /* Relleno interno */
+  font-size: 0.875rem; /* Tamaño de fuente */
+  font-weight: medium; /* Peso de fuente medio */
+  color: white; /* Color del texto */
+  background-color: #00144d; /* Fondo azul oscuro */
+  border-radius: 8px; /* Bordes redondeados */
+  transition: background-color 0.3s; /* Transición para el cambio de color de fondo */
+}
+
+.product-card .content button:hover {
+  background-color: #012894; /* Fondo azul más claro al pasar el ratón */
+}

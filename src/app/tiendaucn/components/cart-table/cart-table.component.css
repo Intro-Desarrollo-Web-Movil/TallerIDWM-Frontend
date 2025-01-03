@@ -1,0 +1,50 @@
+/* Define el contenedor principal con un ancho máximo de 1200px */
+.container {
+  max-width: 1200px; /* Ajusta el ancho máximo del contenedor */
+}
+
+/* Centra el contenedor horizontalmente */
+.mx-auto {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* Agrega márgenes verticales de 2rem (32px) */
+.my-8 {
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+}
+
+/* Agrega padding (relleno) de 1rem (16px) a los lados izquierdo y derecho */
+.px-4 {
+  padding-left: 1rem;
+  padding-right: 1rem;
+}
+
+/* Agrega padding (relleno) de 1.5rem (24px) a los lados izquierdo y derecho en pantallas pequeñas */
+.sm\:px-6 {
+  padding-left: 1.5rem;
+  padding-right: 1.5rem;
+}
+
+/* Agrega padding (relleno) de 2rem (32px) a los lados izquierdo y derecho en pantallas grandes */
+.lg\:px-8 {
+  padding-left: 2rem;
+  padding-right: 2rem;
+}
+
+/* Agrega márgenes horizontales de 0.25rem (4px) a los elementos */
+.mx-1 {
+  margin-left: 0.25rem;
+  margin-right: 0.25rem;
+}
+
+/* Centra el contenido de las celdas */
+th, td {
+  text-align: center;
+}
+
+/* Asegura que la tabla ocupe todo el ancho disponible */
+table {
+  width: 100%;
+}
