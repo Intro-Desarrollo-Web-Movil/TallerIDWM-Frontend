@@ -1,25 +1,46 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { ProductCardComponent } from '../product-card/product-card.component';
 import { CommonModule } from '@angular/common';
 import { HttpClientModule } from '@angular/common/http';
-
+import { ProductService } from '../../services/product.service';
+import { Product } from '../../interfaces/Product';
+import { ResponseAPIGetAllProducts } from '../../interfaces/ResponseAPI_GetAllProducts';
+import { NavbarComponent } from '../navbar/navbar.component';
+import { SearchInputComponent } from '../search-input/search-input.component';
 @Component({
   selector: 'product-card-list',
-  imports: [CommonModule, HttpClientModule, ProductCardComponent],
+  imports: [CommonModule, HttpClientModule, ProductCardComponent, NavbarComponent, SearchInputComponent],
   templateUrl: './product-card-list.component.html',
   styleUrl: './product-card-list.component.css'
 })
-export class ProductCardListComponent {
-  products = [
-    { name: 'Producto 1', type: 'Tipo 1', price: 1000, imageUrl: 'projects/ucnlogo.png' },
-    { name: 'Producto 2', type: 'Tipo 2', price: 2000, imageUrl: 'projects/ucnlogo.png' },
-    { name: 'Producto 3', type: 'Tipo 3', price: 3000, imageUrl: 'projects/ucnlogo.png' },
-    { name: 'Producto 4', type: 'Tipo 4', price: 4000, imageUrl: 'projects/ucnlogo.png' },
-    { name: 'Producto 5', type: 'Tipo 5', price: 5000, imageUrl: 'projects/ucnlogo.png' },
-    { name: 'Producto 6', type: 'Tipo 6', price: 6000, imageUrl: 'projects/ucnlogo.png' },
-    { name: 'Producto 7', type: 'Tipo 7', price: 7000, imageUrl: 'projects/ucnlogo.png' },
-    { name: 'Producto 8', type: 'Tipo 8', price: 8000, imageUrl: 'projects/ucnlogo.png' },
-    { name: 'Producto 9', type: 'Tipo 9', price: 9000, imageUrl: 'projects/ucnlogo.png' },
-    { name: 'Producto 10', type: 'Tipo 10', price: 10000, imageUrl: 'projects/ucnlogo.png' }
-  ];
+export class ProductCardListComponent implements OnInit{
+  products: Product[] = [];
+  totalItems: number = 0;
+  pageNumber: number = 1;
+  pageSize: number = 10;
+  searchName: string = '';
+
+  constructor(private productService: ProductService) {}
+
+  ngOnInit(): void {
+    this.getAllProducts();
+  }
+
+  getAllProducts(): void {
+    this.productService.getAllProducts(this.searchName, this.pageNumber, this.pageSize)
+      .then((response: ResponseAPIGetAllProducts) => {
+        this.products = response.products;
+        this.totalItems = response.totalItems;
+        this.pageNumber = response.pageNumber;
+        this.pageSize = response.pageSize;
+      })
+      .catch((error) => {
+        console.error('Error al obtener los productos:', error);
+      });
+  }
+
+  onSearch(name: string): void {
+    this.searchName = name;
+    this.getAllProducts();
+  }
 }
