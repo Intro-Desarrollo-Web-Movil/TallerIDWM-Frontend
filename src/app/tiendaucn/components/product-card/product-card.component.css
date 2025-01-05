@@ -1,48 +1,46 @@
-/* Estilo para el contenedor principal de la tarjeta de producto */
+
+/* Estilos para el contenedor de la tarjeta de producto */
 .product-card {
-  max-width: 100%; /* Ancho máximo de la tarjeta */
-  margin: 10px; /* Margen alrededor de la tarjeta */
-  background-color: white; /* Fondo blanco */
-  border: 1px solid #e5e7eb; /* Borde gris claro */
-  border-radius: 8px; /* Bordes redondeados */
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Sombra */
-  display: flex; /* Usar flexbox */
-  flex-direction: column; /* Alinear elementos en columna */
-  align-items: center; /* Centrar elementos horizontalmente */
-  text-align: center; /* Centrar texto */
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  border: 1px solid #e5e7eb;
+  border-radius: 0.5rem;
+  padding: 1rem;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  background-color: white;
 }
 
-/* Estilo para el contenedor de la imagen del producto */
-.product-card a img {
-  width: 75%; /* Ancho de la imagen */
-  height: auto; /* Altura automática para mantener la proporción */
-  border-top-left-radius: 8px; /* Bordes redondeados en la parte superior izquierda */
-  border-top-right-radius: 8px; /* Bordes redondeados en la parte superior derecha */
-  display: block; /* Hacer que la imagen sea un bloque */
-  margin: 0 auto; /* Centrar la imagen horizontalmente */
+/* Estilos para la imagen de la tarjeta de producto */
+.product-card img {
+  width: 100%;
+  height: auto;
+  border-radius: 0.5rem 0.5rem 0 0;
 }
 
-/* Estilo para el contenido de la tarjeta */
+/* Estilos para el contenido de la tarjeta de producto */
 .product-card .content {
-  padding: 16px; /* Relleno interno */
-  display: flex; /* Usar flexbox */
-  flex-direction: column; /* Alinear elementos en columna */
-  align-items: center; /* Centrar elementos horizontalmente */
+  margin-top: 0.5rem;
 }
 
-/* Estilo para el título del producto */
-.product-card .content h5 {
-  margin-bottom: 8px; /* Margen inferior */
-  font-size: 1.25rem; /* Tamaño de fuente */
-  font-weight: bold; /* Negrita */
-  color: #1f2937; /* Color del texto */
+/* Estilos para el título de la tarjeta de producto */
+.product-card h2 {
+  font-size: 1.25rem;
+  font-weight: 600;
+  margin-top: 0.5rem;
 }
 
-/* Estilo para la descripción del producto */
-.product-card .content p {
-  margin-bottom: 8px; /* Margen inferior */
-  font-size: 0.875rem; /* Tamaño de fuente */
-  color: #4b5563; /* Color del texto */
+/* Estilos para el texto de la tarjeta de producto */
+.product-card p {
+  margin-top: 0.25rem;
+  color: #4b5563;
+}
+
+/* Estilos para el precio de la tarjeta de producto */
+.product-card .price {
+  font-size: 1rem;
+  font-weight: 700;
+  color: #1f2937;
 }
 
 /* Estilo para el botón */

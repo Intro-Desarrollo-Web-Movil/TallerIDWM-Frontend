@@ -1,15 +1,18 @@
-<nav class="navbar">
+<div class="navbar">
   <div class="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto">
     <!-- Logo -->
     <div class="flex items-center">
       <logo></logo>
     </div>
 
+   <!-- Search Input (visible only on product-list page)
+   <div class="search-bar" *ngIf="isProductListPage">
+    <search-input (search)="onSearch($event)">
 
-    <!-- Search Input (visible only on product-list page) -->
-  <div class="search-bar" *ngIf="isProductListPage">
-    <search-input></search-input>
+    </search-input>
   </div>
+   -->
+
 
   <!-- Navbar Buttons -->
   <div class="items-center justify-center hidden w-full md:flex md:w-auto" id="navbar-sticky">
@@ -31,4 +34,4 @@
       </li>
     </ul>
   </div>
-</nav>
+</div>

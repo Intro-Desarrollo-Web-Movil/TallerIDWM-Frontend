@@ -6,14 +6,18 @@ import { CommonModule } from '@angular/common';
 import { LogoComponent } from '../logo/logo.component';
 import { NavigationEnd, Router } from '@angular/router';
 import { SearchInputComponent } from '../search-input/search-input.component';
+import { ProductCardListComponent } from '../product-card-list/product-card-list.component';
+import { FormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
 
 @Component({
   selector: 'navbar',
-  imports: [CommonModule, SearchInputComponent ,LogoComponent, NavbarButtonComponent, DropdownButtonComponent],
+  imports: [CommonModule, FormsModule, HttpClientModule, SearchInputComponent ,LogoComponent, NavbarButtonComponent, DropdownButtonComponent],
   templateUrl: './navbar.component.html',
   styleUrl: './navbar.component.css'
 })
-export class NavbarComponent implements OnInit{
+export class NavbarComponent implements OnInit {
+
   isProductListPage: boolean = false;
 
   constructor(private router: Router) {
@@ -27,4 +31,11 @@ export class NavbarComponent implements OnInit{
 
   ngOnInit(): void {}
 
+  onSearch(name: string): void {
+    // Emitir el evento de búsqueda
+    const productCardListComponent = document.querySelector('product-card-list');
+    if (productCardListComponent) {
+      productCardListComponent.dispatchEvent(new CustomEvent('search', { detail: name }));
+    }
+  }
 }

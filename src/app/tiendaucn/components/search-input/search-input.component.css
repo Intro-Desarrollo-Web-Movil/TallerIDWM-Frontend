@@ -1,7 +1,8 @@
 /* Estilo para el contenedor de la barra de búsqueda */
 .search-bar {
-  max-width: 100%; /* Ancho máximo */
-  margin: 10px auto; /* Margen automático para centrar */
+
+  max-width: 40%; /* Ancho máximo */
+  margin: 20px auto; /* Margen automático para centrar */
 }
 
 /* Estilo para el campo de entrada de búsqueda */
