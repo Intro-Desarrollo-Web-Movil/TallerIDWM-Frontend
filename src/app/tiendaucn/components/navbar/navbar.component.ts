@@ -1,5 +1,5 @@
 
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { NavbarButtonComponent } from '../navbar-button/navbar-button.component';
 import { DropdownButtonComponent } from '../dropdown-button/dropdown-button.component';
 import { CommonModule } from '@angular/common';
@@ -18,24 +18,20 @@ import { HttpClientModule } from '@angular/common/http';
 })
 export class NavbarComponent implements OnInit {
 
-  isProductListPage: boolean = false;
+  @Input() buttons: { text: string, route: string }[] = [];
+  @Input() dropdownOptions: { text: string, route: string }[] = [];
 
-  constructor(private router: Router) {
-    // Subscribe to router events to check the current route
-    this.router.events.subscribe(event => {
-      if (event instanceof NavigationEnd) {
-        this.isProductListPage = event.urlAfterRedirects.includes('/product-list');
-      }
-    });
-  }
+  isDropdownVisible: boolean = false;
+
+  constructor(private router: Router) {}
 
   ngOnInit(): void {}
 
-  onSearch(name: string): void {
-    // Emitir el evento de búsqueda
-    const productCardListComponent = document.querySelector('product-card-list');
-    if (productCardListComponent) {
-      productCardListComponent.dispatchEvent(new CustomEvent('search', { detail: name }));
-    }
+  navigateTo(route: string): void {
+    this.router.navigate([route]);
+  }
+
+  toggleDropdown(): void {
+    this.isDropdownVisible = !this.isDropdownVisible;
   }
 }

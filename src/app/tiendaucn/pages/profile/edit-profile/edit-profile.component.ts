@@ -1,8 +1,10 @@
 import { Component } from '@angular/core';
+import { NavbarComponent } from "../../../components/navbar/navbar.component";
+import { CommonModule } from '@angular/common';
 
 @Component({
-  selector: 'app-edit-profile',
-  imports: [],
+  selector: 'edit-profile',
+  imports: [NavbarComponent, CommonModule],
   templateUrl: './edit-profile.component.html',
   styleUrl: './edit-profile.component.css'
 })

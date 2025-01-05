@@ -25,6 +25,7 @@ export class LoginFormComponent implements OnInit{
     this.createForm();
   }
 
+
   createForm(){
     this.form = this.FormBuilder.group({
       Email:['', [Validators.required, Validators.email]],
@@ -34,19 +35,29 @@ export class LoginFormComponent implements OnInit{
 
   onSubmit() {
     if (this.form.valid) {
-      // Navegar a otra página (por ejemplo, página de inicio)
-      this.router.navigate(['/home']);
+      const email = this.form.get('Email')?.value;
+      const password = this.form.get('Password')?.value;
+
+      // Validacion de credenciales administrador
+      if (email === 'admin@idwm.cl' && password === 'P4ssw0rd') {
+        this.router.navigate(['/product-management']);
+      }
+
+      else {
+        this.router.navigate(['/product-list']);
+      }
     } else {
       this.error = true;
       this.errorMessage = ['Por favor, complete todos los campos correctamente.'];
     }
   }
 
+  get emailInvalid() {
+    return this.form.get('Email')?.invalid && this.form.get('Email')?.touched;
+  }
 
   get passwordInvalid() {
     return this.form.get('Password')?.invalid && this.form.get('Password')?.touched;
   }
-  get emailInvalid() {
-    return this.form.get('Email')?.invalid && this.form.get('Email')?.touched;
-  }
+
 }

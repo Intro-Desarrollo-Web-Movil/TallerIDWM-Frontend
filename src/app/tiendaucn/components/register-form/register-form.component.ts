@@ -38,12 +38,18 @@ export class RegisterFormComponent implements OnInit{
 
   onSubmit() {
     if (this.form.valid) {
-      const birthDateValue = this.form.get('BirthDate')?.value;
-      console.log('Fecha de Nacimiento:', birthDateValue); // Verificar el valor de la fecha
+      const email = this.form.get('Email')?.value;
+      const password = this.form.get('Password')?.value;
 
+      // Verifica credenciales de administrador
+      if (email === 'admin@idwm.cl' && password === 'P4ssw0rd') {
+        this.router.navigate(['/product-management']);
+      }
 
-      // Navegar a otra página (por ejemplo, página de inicio)
-      this.router.navigate(['/home']);
+      else {
+        this.router.navigate(['/product-list']);
+      }
+
     } else {
       this.error = true;
       this.errorMessage = ['Por favor, complete todos los campos correctamente.'];

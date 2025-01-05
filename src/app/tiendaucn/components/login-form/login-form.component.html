@@ -3,7 +3,7 @@
     <div class="mb-4">
       <label for="email" class="block text-sm font-medium text-gray-700">Correo Electrónico</label>
       <input type="email" id="email" formControlName="Email" class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm" />
-      <div *ngIf="form.get('email')?.invalid && form.get('email')?.touched" class="text-red-500 text-sm mt-1">
+      <div *ngIf="emailInvalid" class="text-red-500 text-sm mt-1">
         Correo electrónico inválido.
       </div>
     </div>
@@ -11,8 +11,8 @@
     <div class="mb-4">
       <label for="password" class="block text-sm font-medium text-gray-700">Contraseña</label>
       <input type="password" id="password" formControlName="Password" class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm" />
-      <div *ngIf="form.get('password')?.invalid && form.get('password')?.touched" class="text-red-500 text-sm mt-1">
-        La contraseña debe tener entre 3 y 20 caracteres.
+      <div *ngIf="passwordInvalid" class="text-red-500 text-sm mt-1">
+        La contraseña debe tener entre 8 y 20 caracteres.
       </div>
     </div>
 

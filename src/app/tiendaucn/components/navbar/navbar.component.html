@@ -1,37 +1,38 @@
-<div class="navbar">
-  <div class="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto">
-    <!-- Logo -->
-    <div class="flex items-center">
-      <logo></logo>
+<nav class="navbar">
+
+<div class="container mx-auto flex justify-between items-center">
+  <!-- Logo -->
+  <div class="flex items-center">
+    <logo-app></logo-app>
+  </div>
+
+  <div class="container mx-auto flex justify-between items-center">
+    <!-- Botones de navegación -->
+    <div class="flex space-x-4 ml-auto">
+      <ng-container *ngFor="let button of buttons">
+        <button (click)="navigateTo(button.route)" class="text-white px-3 py-2 rounded-md text-sm font-medium hover:bg-blue-700">
+          {{ button.text }}
+        </button>
+      </ng-container>
     </div>
 
-   <!-- Search Input (visible only on product-list page)
-   <div class="search-bar" *ngIf="isProductListPage">
-    <search-input (search)="onSearch($event)">
-
-    </search-input>
+    <!-- Botón desplegable -->
+    <div class="relative ml-4">
+      <button class="text-white px-3 py-2 rounded-md text-sm font-medium hover:bg-blue-700" (click)="toggleDropdown()">
+        Cuenta
+        <svg class="w-4 h-4 inline-block ml-1" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+        </svg>
+      </button>
+      <div *ngIf="isDropdownVisible" class="absolute right-0 mt-2 w-48 bg-white rounded-md shadow-lg z-20">
+        <ng-container *ngFor="let option of dropdownOptions">
+          <a (click)="navigateTo(option.route)" class="block px-4 py-2 text-gray-800 hover:bg-gray-200">
+            {{ option.text }}
+          </a>
+        </ng-container>
+      </div>
+    </div>
   </div>
-   -->
 
-
-  <!-- Navbar Buttons -->
-  <div class="items-center justify-center hidden w-full md:flex md:w-auto" id="navbar-sticky">
-    <ul class="flex flex-col p-4 md:p-0 mt-4 font-bold rounded-lg bg-gray-50 md:space-x-8 rtl:space-x-reverse md:flex-row md:mt-0 md:bg-transparent dark:bg-gray-800 md:dark:bg-transparent">
-      <!-- Boton 1 -->
-      <li>
-        <navbar-button label="Productos" route="/product-list"></navbar-button>
-      </li>
-      <!-- Boton 2 -->
-      <li>
-        <navbar-button label="Carrito" route="/cart"></navbar-button>
-      </li>
-      <!-- Dropdown Button -->
-      <li>
-        <dropdown-button label="Cuenta" [options]="[
-          { label: 'Iniciar sesión', route: '/login' },
-          { label: 'Registrarse', route: '/register' }
-        ]"></dropdown-button>
-      </li>
-    </ul>
-  </div>
 </div>
+</nav>
