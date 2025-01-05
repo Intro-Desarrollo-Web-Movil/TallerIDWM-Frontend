@@ -15,6 +15,7 @@ import { HttpClientModule } from '@angular/common/http';
 export class SearchInputComponent {
 
   @Output() search = new EventEmitter<string>();
+
   searchTerm: string = '';
 
   onSearch(event: Event): void {
