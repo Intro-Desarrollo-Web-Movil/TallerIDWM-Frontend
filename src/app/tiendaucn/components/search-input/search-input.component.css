@@ -1,5 +1,6 @@
 /* Estilo para el contenedor de la barra de búsqueda */
 .search-bar {
+
   max-width: 40%; /* Ancho máximo */
   margin: 20px auto; /* Margen automático para centrar */
 }

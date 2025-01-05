@@ -17,6 +17,7 @@ import { HttpClientModule } from '@angular/common/http';
   styleUrl: './navbar.component.css'
 })
 export class NavbarComponent implements OnInit {
+
   isProductListPage: boolean = false;
 
   constructor(private router: Router) {

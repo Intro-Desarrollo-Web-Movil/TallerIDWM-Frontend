@@ -8,9 +8,11 @@ import { CartTableComponent } from "../../../components/cart-table/cart-table.co
 
 @Component({
   selector: 'cart',
+
   imports: [CommonModule, CartTableComponent, HttpClientModule, NavbarComponent],
   templateUrl: './cart.component.html',
   styleUrls: ['./cart.component.css']
+
 })
 export class CartComponent {
 
