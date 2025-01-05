@@ -1,7 +1,60 @@
-/* Estilo para el contenedor de la lista de tarjetas de producto */
-.product-card-list {
-  display: grid; /* Usar grid layout */
-  grid-template-columns: repeat(5, 1fr); /* Crear 5 columnas de igual tamaño */
-  gap: 16px; /* Espacio entre las tarjetas */
-  padding: 16px; /* Relleno interno */
+/* Estilos para el contenedor de la tarjeta de producto */
+.product-card {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  border: 1px solid #e5e7eb;
+  border-radius: 0.5rem;
+  padding: 1rem;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  background-color: white;
+}
+
+/* Estilos para la imagen de la tarjeta de producto */
+.product-card img {
+  width: 100%;
+  height: auto;
+  border-radius: 0.5rem 0.5rem 0 0;
+}
+
+/* Estilos para el contenido de la tarjeta de producto */
+.product-card .content {
+  margin-top: 0.5rem;
+}
+
+/* Estilos para el título de la tarjeta de producto */
+.product-card h2 {
+  font-size: 1.25rem;
+  font-weight: 600;
+  margin-top: 0.5rem;
+}
+
+/* Estilos para el texto de la tarjeta de producto */
+.product-card p {
+  margin-top: 0.25rem;
+  color: #4b5563;
+}
+
+/* Estilos para el precio de la tarjeta de producto */
+.product-card .price {
+  font-size: 1rem;
+  font-weight: 700;
+  color: #1f2937;
+}
+
+/* Estilo para el botón */
+.product-card .content button {
+  display: inline-flex; /* Elemento en línea con flexbox */
+  align-items: center; /* Alinear elementos al centro */
+  padding: 8px 16px; /* Relleno interno */
+  font-size: 0.875rem; /* Tamaño de fuente */
+  font-weight: medium; /* Peso de fuente medio */
+  color: white; /* Color del texto */
+  background-color: #00144d; /* Fondo azul oscuro */
+  border-radius: 8px; /* Bordes redondeados */
+  transition: background-color 0.3s; /* Transición para el cambio de color de fondo */
+}
+
+.product-card .content button:hover {
+  background-color: #012894; /* Fondo azul más claro al pasar el ratón */
 }

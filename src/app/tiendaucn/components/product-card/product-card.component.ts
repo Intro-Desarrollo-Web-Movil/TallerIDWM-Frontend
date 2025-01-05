@@ -2,6 +2,7 @@ import { CommonModule } from '@angular/common';
 import { HttpClientModule } from '@angular/common/http';
 import { Component, Input } from '@angular/core';
 import { FormsModule } from '@angular/forms';
+import { Product } from '../../interfaces/Product';
 
 @Component({
   selector: 'product-card',
@@ -10,7 +11,7 @@ import { FormsModule } from '@angular/forms';
   styleUrl: './product-card.component.css'
 })
 export class ProductCardComponent {
-  @Input() product!: { name: string, category: string, price: number, imageUrl: string };
+  @Input() product!: Product;
 
   addToCart(product: any) {
     // Lógica para agregar el producto al carrito

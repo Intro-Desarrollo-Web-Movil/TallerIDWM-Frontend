@@ -23,7 +23,7 @@ export class ProductService {
   // Método para Obtener todos los Productos
   async getAllProducts(name: string = '', pageNumber: number = 1, pageSize: number = 10): Promise<ResponseAPIGetAllProducts> {
     try {
-      const response = await firstValueFrom(this.http.get<ResponseAPIGetAllProducts>(`${this.baseUrl}/Product?pageNumber=${pageNumber}&pageSize=${pageSize}`));
+      const response = await firstValueFrom(this.http.get<ResponseAPIGetAllProducts>(`${this.baseUrl}/Product?name=${name}&pageNumber=${pageNumber}&pageSize=${pageSize}`));
       return Promise.resolve(response);
     } catch (error) {
       console.log('Error en getAllProducts', error);

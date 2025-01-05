@@ -12,7 +12,7 @@ import { HttpClientModule } from '@angular/common/http';
 
 @Component({
   selector: 'navbar',
-  imports: [CommonModule, FormsModule, HttpClientModule, ProductCardListComponent, SearchInputComponent ,LogoComponent, NavbarButtonComponent, DropdownButtonComponent],
+  imports: [CommonModule, FormsModule, HttpClientModule, SearchInputComponent ,LogoComponent, NavbarButtonComponent, DropdownButtonComponent],
   templateUrl: './navbar.component.html',
   styleUrl: './navbar.component.css'
 })

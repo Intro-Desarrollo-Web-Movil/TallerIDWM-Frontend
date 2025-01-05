@@ -8,6 +8,7 @@
       </a>
       <p class="mb-2 text-sm font-medium text-gray-700 dark:text-gray-400">Tipo: {{ product.category }}</p>
       <p class="mb-2 text-sm font-medium text-gray-700 dark:text-gray-400">Precio: {{ product.price | currency }}</p>
+
       <button (click)="addToCart(product)" class="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-blue-800 rounded-lg hover:bg-blue-900 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-700 dark:hover:bg-blue-800 dark:focus:ring-blue-900">
           Agregar al carrito
       </button>

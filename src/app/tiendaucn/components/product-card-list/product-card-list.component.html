@@ -1,7 +1,20 @@
 <div class="product-card-list">
 
-  <product-card
-    *ngFor="let product of products"
-    [product]="product">
-  </product-card>
-</div>
+
+  <search-input class="mb-4"
+  (search)="onSearch($event)"
+  ></search-input>
+
+  <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-4 mt-16 mb-16">
+    <product-card
+      *ngFor="let product of products"
+      [product]="product">
+    </product-card>
+  </div>
+
+ </div>
+
+  <!-- Mover la search-bar aquí abajo -->
+   <div class="mt-4 mb-10">
+      <search-bar [pageNumber]="pageNumber" [pageSize]="pageSize" [totalItems]="totalItems" (previousPage)="onPreviousPage()" (nextPage)="onNextPage()"></search-bar>
+   </div>
