@@ -8,9 +8,10 @@ import { ResponseAPIGetAllProducts } from '../../interfaces/ResponseAPI_GetAllPr
 import { NavbarComponent } from '../navbar/navbar.component';
 import { SearchInputComponent } from '../search-input/search-input.component';
 import { SearchBarComponent } from '../search-bar/search-bar.component';
+import { FilterButtonComponent } from '../filter-button/filter-button.component';
 @Component({
   selector: 'product-card-list',
-  imports: [CommonModule, HttpClientModule, SearchBarComponent, ProductCardComponent, SearchInputComponent],
+  imports: [CommonModule, HttpClientModule, FilterButtonComponent, SearchBarComponent, ProductCardComponent, SearchInputComponent],
   templateUrl: './product-card-list.component.html',
   styleUrl: './product-card-list.component.css'
 })
@@ -25,6 +26,22 @@ export class ProductCardListComponent implements OnInit{
 
   searchName: string = '';
 
+  selectedCategory: number | null = null;
+  sort: string | null = null;
+
+  categoryOptions = [
+    { text: 'Poleras', value: 1 },
+    { text: 'Gorros', value: 2 },
+    { text: 'Juguetería', value: 3 },
+    { text: 'Alimentación', value: 4 },
+    { text: 'Libros', value: 5 }
+  ];
+
+  sortOptions = [
+    { text: 'Ascendente', value: 'asc' },
+    { text: 'Descendente', value: 'desc' }
+  ];
+
   constructor(private productService: ProductService) {}
 
   ngOnInit(): void {
@@ -32,7 +49,7 @@ export class ProductCardListComponent implements OnInit{
   }
 
   getAllProducts(): void {
-    this.productService.getAllProducts(this.searchName, this.pageNumber, this.pageSize)
+    this.productService.getAllProducts(this.searchName, this.selectedCategory, this.sort, this.pageNumber, this.pageSize)
       .then((response: ResponseAPIGetAllProducts) => {
         console.log('Response from API:', response);
         this.products = response.products;
@@ -51,6 +68,18 @@ export class ProductCardListComponent implements OnInit{
   onSearch(name: string): void {
     this.searchName = name;
     this.pageNumber = 1; // Reset to first page on new search
+    this.getAllProducts();
+  }
+
+  onCategorySelected(category: number): void {
+    this.selectedCategory = category;
+    this.pageNumber = 1; // Reset to first page on new filter
+    this.getAllProducts();
+  }
+
+  onSortSelected(sort: string): void {
+    this.sort = sort;
+    this.pageNumber = 1; // Reset to first page on new sort
     this.getAllProducts();
   }
 
