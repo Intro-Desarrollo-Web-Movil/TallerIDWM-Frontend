@@ -1,6 +1,7 @@
 <div class="product-card-list">
 
 
+
   <search-input class="mb-4"
   (search)="onSearch($event)"
   ></search-input>
@@ -18,3 +19,4 @@
    <div class="mt-4 mb-10">
       <search-bar [pageNumber]="pageNumber" [pageSize]="pageSize" [totalItems]="totalItems" (previousPage)="onPreviousPage()" (nextPage)="onNextPage()"></search-bar>
    </div>
+
