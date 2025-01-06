@@ -48,3 +48,83 @@ th, td {
 table {
   width: 100%;
 }
+
+/* Estilos para el botón de incrementar (verde) */
+.increment-button {
+  background-color: #1770c4;
+  color: white;
+}
+
+.increment-button:hover {
+  background-color: #125ca1;
+}
+
+/* Estilos para el botón de decrementar (rojo) */
+.decrement-button {
+  background-color: #dc3545;
+  color: white;
+}
+
+.decrement-button:hover {
+  background-color: #c82333;
+}
+
+/* Estilos para el botón de eliminar (gris) */
+.delete-button {
+  background-color: #6c757d;
+  color: white;
+}
+
+.delete-button:hover {
+  background-color: #5a6268;
+}
+
+/* Estilos personalizados para la tabla del carrito */
+
+/* Estilos para los botones de las acciones */
+.action-button {
+  width: 40px;
+  height: 40px;
+  padding: 0px;
+  font-size: 16px;
+  font-weight: bold;
+  text-align: center;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  margin: 5px;
+}
+
+
+/* Estilos para el botón de realizar compra */
+.purchase-button {
+  width: 40%;
+  padding: 16px;
+  font-size: 18px;
+  font-weight: bold;
+  text-align: center;
+  background-color: #28a745;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  margin: 20px;
+}
+
+.purchase-button:hover {
+  background-color: #218838;
+}
+
+.purchase-button:disabled {
+  background-color: #6c757d;
+  cursor: not-allowed;
+}
+
+.margin{
+  margin: 20px;
+}
+
+
