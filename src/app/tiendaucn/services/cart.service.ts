@@ -34,11 +34,17 @@ export class CartService {
       return this.http.get<any>(url).toPromise();
     }
 
-    //! TO DO
 
-    // Método para Crear un Producto
+    deleteProduct(cartId: number, productId: number): Promise<any> {
+      const url = `${this.baseUrl}/ShoppingCart/${cartId}/remove/${productId}`;
+      return this.http.delete(url, { responseType: 'text' }).toPromise();
+    }
 
-    //! TO DO
+    addProduct(cartId: number, productId: number, quantity: number): Promise<any> {
+      const url = `${this.baseUrl}/ShoppingCart/${cartId}/add`;
+      const body = { productId, quantity };
+      return this.http.post<any>(url, body).toPromise();
+    }
 
 
     getErrors(): string[] {

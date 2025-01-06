@@ -14,6 +14,7 @@ import { HttpClientModule } from '@angular/common/http';
 export class CartTableComponent implements OnInit {
   items: any[] = [];
   total: number = 0;
+  cartId: number | null = null;
 
   constructor(private router: Router, private cartService: CartService, private userService: UserService) {}
 
@@ -32,6 +33,7 @@ export class CartTableComponent implements OnInit {
           if (cart.userId === userId) {
             this.items = cart.items;
             this.total = cart.total;
+            this.cartId = cart.cartId;
             cartFound = true;
           }
           cartId++;
@@ -39,6 +41,18 @@ export class CartTableComponent implements OnInit {
           console.error('Error fetching cart:', error);
           break;
         }
+      }
+    }
+  }
+
+  async eliminarCantidad(productId: number) {
+    if (this.cartId !== null) {
+      try {
+        await this.cartService.deleteProduct(this.cartId, productId);
+        this.items = this.items.filter(item => item.productId !== productId);
+        this.calcularTotal();
+      } catch (error) {
+        console.error('Error deleting product:', error);
       }
     }
   }
@@ -57,15 +71,6 @@ export class CartTableComponent implements OnInit {
     if (item && item.quantity > 0) {
       item.quantity--;
       item.totalPrice = item.quantity * item.price;
-      this.calcularTotal();
-    }
-  }
-
-  eliminarCantidad(productId: number) {
-    const item = this.items.find(i => i.productId === productId);
-    if (item) {
-      item.quantity = 0;
-      item.totalPrice = 0;
       this.calcularTotal();
     }
   }
