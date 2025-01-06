@@ -10,6 +10,7 @@ import { firstValueFrom, Observable } from 'rxjs';
 export class UserService {
 
   private baseUrl: string = 'http://localhost:5132/api';
+  private userId: number | null = null;
 
   public errors: string[] = [];
 
@@ -35,6 +36,14 @@ export class UserService {
     const url = `${this.baseUrl}/User?pageSize=${pageSize}`;
     console.log(url); // Para verificar la URL generada
     return this.http.get<any>(url).toPromise();
+  }
+
+  setUserId(id: number) {
+    this.userId = id;
+  }
+
+  getUserId(): number | null {
+    return this.userId;
   }
 
   // Método para Crear un Usuario

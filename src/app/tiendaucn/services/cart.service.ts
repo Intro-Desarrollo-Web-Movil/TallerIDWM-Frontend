@@ -29,6 +29,11 @@ export class CartService {
       }
     }
 
+    getCart(cartId: number): Promise<any> {
+      const url = `${this.baseUrl}/ShoppingCart/${cartId}`;
+      return this.http.get<any>(url).toPromise();
+    }
+
     //! TO DO
 
     // Método para Crear un Producto
