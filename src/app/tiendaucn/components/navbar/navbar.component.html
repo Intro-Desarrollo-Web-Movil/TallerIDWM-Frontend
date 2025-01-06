@@ -1,12 +1,14 @@
 <nav class="navbar">
 
-<div class="container mx-auto flex justify-between items-center">
-  <!-- Logo -->
-  <div class="flex items-center">
-    <logo-app></logo-app>
-  </div>
+
 
   <div class="container mx-auto flex justify-between items-center">
+
+      <!-- Logo -->
+    <div class="flex items-center">
+      <logo-app></logo-app>
+    </div>
+
     <!-- Botones de navegación -->
     <div class="flex space-x-4 ml-auto">
       <ng-container *ngFor="let button of buttons">
@@ -25,14 +27,23 @@
         </svg>
       </button>
       <div *ngIf="isDropdownVisible" class="absolute right-0 mt-2 w-48 bg-white rounded-md shadow-lg z-20">
-        <ng-container *ngFor="let option of dropdownOptions">
-          <a (click)="navigateTo(option.route)" class="block px-4 py-2 text-gray-800 hover:bg-gray-200">
-            {{ option.text }}
+        <ng-container *ngIf="!isLoggedIn">
+          <a (click)="navigateTo('/login')" class="block px-4 py-2 text-gray-800 hover:bg-gray-200">
+            Iniciar sesión
+          </a>
+          <a (click)="navigateTo('/register')" class="block px-4 py-2 text-gray-800 hover:bg-gray-200">
+            Registrarse
+          </a>
+        </ng-container>
+        <ng-container *ngIf="isLoggedIn">
+          <a (click)="navigateTo('/edit-profile')" class="block px-4 py-2 text-gray-800 hover:bg-gray-200">
+            Editar perfil
+          </a>
+          <a (click)="logout()" class="block px-4 py-2 text-gray-800 hover:bg-gray-200">
+            Cerrar sesión
           </a>
         </ng-container>
       </div>
     </div>
   </div>
-
-</div>
 </nav>

@@ -5,6 +5,7 @@ import { AbstractControl, FormBuilder, FormGroup, FormsModule, ReactiveFormsModu
 
 import { Router } from '@angular/router';
 import { UserService } from '../../services/user.service';
+import { AuthService } from '../../services/auth.service';
 
 @Component({
   selector: 'login-form',
@@ -12,26 +13,22 @@ import { UserService } from '../../services/user.service';
   templateUrl: './login-form.component.html',
   styleUrl: './login-form.component.css'
 })
-export class LoginFormComponent implements OnInit{
-
+export class LoginFormComponent implements OnInit {
   form!: FormGroup;
   error: boolean = false;
   errorMessage: string[] = [];
   totalItems: number = 1000; // Ajusta este valor según el número total de usuarios en tu base de datos
 
+  constructor(private formBuilder: FormBuilder, private router: Router, private userService: UserService, private authService: AuthService) {}
 
-  constructor(private FormBuilder: FormBuilder, private router: Router, private userService: UserService) {}
-
-
-  ngOnInit(){
+  ngOnInit() {
     this.createForm();
   }
 
-
-  createForm(){
-    this.form = this.FormBuilder.group({
-      Email:['', [Validators.required, Validators.email]],
-      Password:['', [Validators.required, Validators.minLength(8), Validators.maxLength(20)]],
+  createForm() {
+    this.form = this.formBuilder.group({
+      Email: ['', [Validators.required, Validators.email]],
+      Password: ['', [Validators.required, Validators.minLength(8), Validators.maxLength(20)]],
     });
   }
 
@@ -48,15 +45,14 @@ export class LoginFormComponent implements OnInit{
 
         if (user) {
           console.log('Usuario encontrado:', user); // Imprimir el usuario encontrado
+          this.authService.login(user);
+          if (user.role === 'Admin') {
+            this.router.navigate(['/product-management']); // Redirige a la página de administración
+          } else if (user.role === 'Customer') {
+            this.router.navigate(['/product-list']); // Redirige a la página de inicio o cualquier otra página
+          }
         } else {
           console.log('Usuario no encontrado'); // Imprimir si no se encontró el usuario
-        }
-
-        if (user && user.role === 'Admin') {
-          this.router.navigate(['/product-management']); // Redirige a la página de administración
-        } else if (user && user.role === 'Customer') {
-          this.router.navigate(['/product-list']); // Redirige a la página de inicio o cualquier otra página
-        } else {
           this.error = true;
           this.errorMessage = ['Usuario no encontrado o contraseña incorrecta.'];
         }
@@ -74,7 +70,6 @@ export class LoginFormComponent implements OnInit{
   get emailInvalid() {
     return this.form.get('Email')?.invalid && this.form.get('Email')?.touched;
   }
-
   get passwordInvalid() {
     return this.form.get('Password')?.invalid && this.form.get('Password')?.touched;
   }
