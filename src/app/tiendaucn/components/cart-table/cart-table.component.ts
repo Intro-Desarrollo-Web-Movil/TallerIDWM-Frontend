@@ -1,49 +1,77 @@
 import { CommonModule } from '@angular/common';
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { CartService } from '../../services/cart.service';
+import { UserService } from '../../services/user.service';
+import { HttpClientModule } from '@angular/common/http';
 
 @Component({
   selector: 'cart-table',
-  imports: [CommonModule],
+  imports: [HttpClientModule, CommonModule],
   templateUrl: './cart-table.component.html',
   styleUrl: './cart-table.component.css'
 })
-export class CartTableComponent {
-  cantidad1 = 1;
-  cantidad2 = 2;
-  cantidad3 = 3;
-  precio1 = 10000;
-  precio2 = 20000;
-  precio3 = 30000;
-  total = 0;
+export class CartTableComponent implements OnInit {
+  items: any[] = [];
+  total: number = 0;
 
-  constructor(private router: Router) {
-    this.calcularTotal();
+  constructor(private router: Router, private cartService: CartService, private userService: UserService) {}
+
+  ngOnInit() {
+    this.loadCart();
+  }
+
+  async loadCart() {
+    const userId = this.userService.getUserId();
+    if (userId !== null) {
+      let cartFound = false;
+      let cartId = 1;
+      while (!cartFound) {
+        try {
+          const cart = await this.cartService.getCart(cartId);
+          if (cart.userId === userId) {
+            this.items = cart.items;
+            this.total = cart.total;
+            cartFound = true;
+          }
+          cartId++;
+        } catch (error) {
+          console.error('Error fetching cart:', error);
+          break;
+        }
+      }
+    }
   }
 
   incrementarCantidad(productId: number) {
-    if (productId === 1) this.cantidad1++;
-    if (productId === 2) this.cantidad2++;
-    if (productId === 3) this.cantidad3++;
-    this.calcularTotal();
+    const item = this.items.find(i => i.productId === productId);
+    if (item) {
+      item.quantity++;
+      item.totalPrice = item.quantity * item.price;
+      this.calcularTotal();
+    }
   }
 
   decrementarCantidad(productId: number) {
-    if (productId === 1 && this.cantidad1 > 0) this.cantidad1--;
-    if (productId === 2 && this.cantidad2 > 0) this.cantidad2--;
-    if (productId === 3 && this.cantidad3 > 0) this.cantidad3--;
-    this.calcularTotal();
+    const item = this.items.find(i => i.productId === productId);
+    if (item && item.quantity > 0) {
+      item.quantity--;
+      item.totalPrice = item.quantity * item.price;
+      this.calcularTotal();
+    }
   }
 
   eliminarCantidad(productId: number) {
-    if (productId === 1) this.cantidad1 = 0;
-    if (productId === 2) this.cantidad2 = 0;
-    if (productId === 3) this.cantidad3 = 0;
-    this.calcularTotal();
+    const item = this.items.find(i => i.productId === productId);
+    if (item) {
+      item.quantity = 0;
+      item.totalPrice = 0;
+      this.calcularTotal();
+    }
   }
 
   calcularTotal() {
-    this.total = (this.cantidad1 * this.precio1) + (this.cantidad2 * this.precio2) + (this.cantidad3 * this.precio3);
+    this.total = this.items.reduce((sum, item) => sum + item.totalPrice, 0);
   }
 
   navigateToDeliveryForm() {

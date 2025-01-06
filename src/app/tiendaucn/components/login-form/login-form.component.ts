@@ -45,6 +45,7 @@ export class LoginFormComponent implements OnInit {
 
         if (user) {
           console.log('Usuario encontrado:', user); // Imprimir el usuario encontrado
+          this.userService.setUserId(user.id); // Almacenar el ID del usuario logueado
           this.authService.login(user);
           if (user.role === 'Admin') {
             this.router.navigate(['/product-management']); // Redirige a la página de administración
