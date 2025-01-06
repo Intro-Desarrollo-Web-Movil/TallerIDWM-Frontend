@@ -1,0 +1,130 @@
+/* Define el contenedor principal con un ancho máximo de 1200px */
+.container {
+  max-width: 1200px; /* Ajusta el ancho máximo del contenedor */
+}
+
+/* Centra el contenedor horizontalmente */
+.mx-auto {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* Agrega márgenes verticales de 2rem (32px) */
+.my-8 {
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+}
+
+/* Agrega padding (relleno) de 1rem (16px) a los lados izquierdo y derecho */
+.px-4 {
+  padding-left: 1rem;
+  padding-right: 1rem;
+}
+
+/* Agrega padding (relleno) de 1.5rem (24px) a los lados izquierdo y derecho en pantallas pequeñas */
+.sm\:px-6 {
+  padding-left: 1.5rem;
+  padding-right: 1.5rem;
+}
+
+/* Agrega padding (relleno) de 2rem (32px) a los lados izquierdo y derecho en pantallas grandes */
+.lg\:px-8 {
+  padding-left: 2rem;
+  padding-right: 2rem;
+}
+
+/* Agrega márgenes horizontales de 0.25rem (4px) a los elementos */
+.mx-1 {
+  margin-left: 0.25rem;
+  margin-right: 0.25rem;
+}
+
+/* Centra el contenido de las celdas */
+th, td {
+  text-align: center;
+}
+
+/* Asegura que la tabla ocupe todo el ancho disponible */
+table {
+  width: 100%;
+}
+
+/* Estilos para el botón de incrementar (verde) */
+.increment-button {
+  background-color: #1770c4;
+  color: white;
+}
+
+.increment-button:hover {
+  background-color: #125ca1;
+}
+
+/* Estilos para el botón de decrementar (rojo) */
+.decrement-button {
+  background-color: #dc3545;
+  color: white;
+}
+
+.decrement-button:hover {
+  background-color: #c82333;
+}
+
+/* Estilos para el botón de eliminar (gris) */
+.delete-button {
+  background-color: #6c757d;
+  color: white;
+}
+
+.delete-button:hover {
+  background-color: #5a6268;
+}
+
+/* Estilos personalizados para la tabla del carrito */
+
+/* Estilos para los botones de las acciones */
+.action-button {
+  width: 40px;
+  height: 40px;
+  padding: 0px;
+  font-size: 16px;
+  font-weight: bold;
+  text-align: center;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  margin: 5px;
+}
+
+
+/* Estilos para el botón de realizar compra */
+.purchase-button {
+  width: 40%;
+  padding: 16px;
+  font-size: 18px;
+  font-weight: bold;
+  text-align: center;
+  background-color: #28a745;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  margin: 20px;
+}
+
+.purchase-button:hover {
+  background-color: #218838;
+}
+
+.purchase-button:disabled {
+  background-color: #6c757d;
+  cursor: not-allowed;
+}
+
+.margin{
+  margin: 20px;
+}
+
+

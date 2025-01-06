@@ -1,0 +1,82 @@
+<navbar
+  [buttons]="[
+    { text: 'Productos', route: '/product-management' },
+    { text: 'Clientes', route: '/customer-management' }
+  ]"
+  [dropdownOptions]="[
+    { text: 'Editar perfil', route: '/edit-profile' },
+    { text: 'Cerrar sesión', route: '/login' }
+  ]">
+</navbar>
+
+<h1 class="text-2xl font-bold text-center mt-12">Gestión de clientes</h1>
+
+
+<div>
+  <style>
+      .table-wrapper {
+          display: flex;
+          justify-content: center;
+          padding: 20px; /* Ajusta el valor según sea necesario */
+      }
+      .table-container {
+          width: 100%;
+          max-width: 1200px; /* Ajusta el valor según sea necesario */
+      }
+      .table-title {
+          color: #312f2f; /* Color gris más oscuro */
+          font-weight: bold; /* Letras más oscuras */
+      }
+      .table-header {
+          background-color: #c5c4c4; /* Color gris oscuro */
+      }
+      .action-buttons {
+          display: flex;
+          gap: 5px;
+          justify-content: center; /* Centra los botones horizontalmente */
+      }
+  </style>
+
+  <div class="table-wrapper">
+      <div class="table-container relative overflow-x-auto shadow-md sm:rounded-lg">
+          <table class="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">
+              <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400 table-title table-header">
+                  <tr>
+                      <th scope="col" class="px-6 py-3">
+                          ID
+                      </th>
+                      <th scope="col" class="px-6 py-3">
+                          Imagen
+                      </th>
+                      <th scope="col" class="px-6 py-3">
+                          Estado
+                      </th>
+                      <th scope="col" class="px-6 py-3 text-center">
+                          Acciones
+                      </th>
+                  </tr>
+              </thead>
+              <tbody>
+                  <tr>
+                      <td class="px-6 py-4">
+                          1
+                      </td>
+                      <td class="px-6 py-4">
+                          <img src="ruta/a/la/imagen.jpg" alt="Imagen del cliente" class="w-10 h-10 rounded-full">
+                      </td>
+                      <td class="px-6 py-4">
+                          Activo
+                      </td>
+                      <td class="px-6 py-4 text-center">
+                          <div class="action-buttons">
+                              <button class="bg-green-500 text-white px-2 py-1 rounded">Activar/Desactivar</button>
+                              <button class="bg-red-500 text-white px-2 py-1 rounded">Eliminar</button>
+                          </div>
+                      </td>
+                  </tr>
+                  <!-- Aquí irían más filas de la tabla -->
+              </tbody>
+          </table>
+      </div>
+  </div>
+</div>

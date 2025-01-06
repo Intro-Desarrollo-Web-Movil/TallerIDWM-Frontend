@@ -1,0 +1,88 @@
+<navbar
+  [buttons]="[
+    { text: 'Productos', route: '/product-management' },
+    { text: 'Clientes', route: '/customer-management' }
+  ]"
+  [dropdownOptions]="[
+    { text: 'Editar perfil', route: '/edit-profile' },
+    { text: 'Cerrar sesión', route: '/login' }
+  ]">
+</navbar>
+
+<h1 class="text-2xl font-bold text-center mt-12">Gestión de productos</h1>
+
+
+<div>
+  <style>
+      .table-wrapper {
+          display: flex;
+          justify-content: center;
+          padding: 20px; /* Ajusta el valor según sea necesario */
+      }
+      .table-container {
+          width: 100%;
+          max-width: 1200px; /* Ajusta el valor según sea necesario */
+      }
+      .table-title {
+          color: #312f2f; /* Color gris más oscuro */
+          font-weight: bold; /* Letras más oscuras */
+      }
+      .table-header {
+          background-color: #c5c4c4; /* Color gris oscuro */
+      }
+  </style>
+
+  <div class="table-wrapper">
+      <div class="table-container relative overflow-x-auto shadow-md sm:rounded-lg">
+          <table class="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">
+              <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400 table-title table-header">
+                  <tr>
+                      <th scope="col" class="px-6 py-3">
+                          ID
+                      </th>
+                      <th scope="col" class="px-6 py-3">
+                          Producto
+                      </th>
+                      <th scope="col" class="px-6 py-3">
+                          Color
+                      </th>
+                      <th scope="col" class="px-6 py-3">
+                          Category
+                      </th>
+                      <th scope="col" class="px-6 py-3">
+                          Price
+                      </th>
+                      <th scope="col" class="px-6 py-3 text-center">
+
+                      </th>
+                  </tr>
+              </thead>
+              <tbody>
+                  <tr>
+                      <td class="px-6 py-4">
+                          1
+                      </td>
+                      <td class="px-6 py-4">
+                          Magic Mouse 2
+                      </td>
+                      <td class="px-6 py-4">
+                          White
+                      </td>
+                      <td class="px-6 py-4">
+                          Accessories
+                      </td>
+                      <td class="px-6 py-4">
+                          $99
+                      </td>
+                      <td class="px-6 py-4 text-center">
+                          <div class="action-buttons">
+                              <button class="bg-blue-500 text-white px-2 py-1 rounded">Edit</button>
+                              <button class="bg-red-500 text-white px-2 py-1 rounded">Delete</button>
+                          </div>
+                      </td>
+                  </tr>
+              </tbody>
+          </table>
+      </div>
+  </div>
+</div>

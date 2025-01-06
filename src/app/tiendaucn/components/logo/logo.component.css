@@ -1,0 +1,15 @@
+.logo-container {
+  display: flex;
+  align-items: center;
+}
+
+.logo-image {
+  height: 75px; /* Ajusta el tamaño de la imagen según sea necesario */
+  margin-right: 10px; /* Espacio entre la imagen y el texto */
+}
+
+.logo-text {
+  color: #ffffff; /* Texto blanco */
+  font-weight: bold; /* Texto en negrita */
+  font-size: 32px; /* Tamaño de fuente grande */
+}

@@ -1,0 +1,36 @@
+<div class="container mx-auto mt-10">
+
+  <!-- Tabla del carrito -->
+  <div class="overflow-x-auto">
+    <table class="min-w-full bg-white">
+      <thead>
+        <tr>
+          <th class="px-6 py-3 border-b-2 border-gray-300 text-left leading-4 tracking-wider">Producto</th>
+          <th class="px-6 py-3 border-b-2 border-gray-300 text-left leading-4 tracking-wider">Precio</th>
+          <th class="px-6 py-3 border-b-2 border-gray-300 text-left leading-4 tracking-wider">Cantidad</th>
+          <th class="px-6 py-3 border-b-2 border-gray-300 text-left leading-4 tracking-wider">Acciones</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let item of items" class="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600">
+          <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">{{ item.productName }}</th>
+          <td class="px-6 py-4">$ {{ item.price }}</td>
+          <td class="px-6 py-4">{{ item.quantity }}</td>
+          <td class="px-6 py-4">
+            <button (click)="incrementarCantidad(item.productId)" class="action-button increment-button">+</button>
+            <button (click)="decrementarCantidad(item.productId)" class="action-button decrement-button">-</button>
+            <button (click)="eliminarCantidad(item.productId)" class="action-button delete-button">X</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- Precio total -->
+  <div class="total-container mt-4 text-left">
+    <span class="text-xl font-bold">Total: $ {{ total }}</span>
+  </div>
+
+  <!-- Botón de realizar compra -->
+  <button class="purchase-button" [disabled]="total === 0" (click)="navigateToDeliveryForm()">Realizar compra</button>
+</div>
