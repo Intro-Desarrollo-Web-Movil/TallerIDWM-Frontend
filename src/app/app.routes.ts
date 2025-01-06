@@ -1,4 +1,5 @@
 import { Routes } from '@angular/router';
+import { AuthGuard } from './tiendaucn/guards/auth.guard';
 
 export const routes: Routes = [
 
@@ -18,7 +19,9 @@ export const routes: Routes = [
     path: 'customer-management',
     loadComponent: () =>
       import('./tiendaucn/pages/admin/customer-management/customer-management.component').then(m =>
-        m.CustomerManagementComponent)
+        m.CustomerManagementComponent),
+    canActivate: [AuthGuard],
+    data: { role: 'Admin' }
   },
 
   // RUTA PRODUCT MANAGEMENT
@@ -26,7 +29,9 @@ export const routes: Routes = [
     path: 'product-management',
     loadComponent: () =>
       import('./tiendaucn/pages/admin/product-management/product-management.component').then(m =>
-        m.ProductManagementComponent)
+        m.ProductManagementComponent),
+    canActivate: [AuthGuard],
+    data: { role: 'Admin' }
   },
 
   // RUTA DELIVERY FORM
@@ -76,8 +81,6 @@ export const routes: Routes = [
       import('./tiendaucn/pages/auth/login/login.component').then(m =>
         m.LoginComponent)
   },
-
-
 
   // VALIDAR RUTAS
   {
